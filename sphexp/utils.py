@@ -18,9 +18,10 @@ def plot_boundary(X, y, clf, labels=["x1", "x2"], plot_data=True,
                   show=True, save=False, file_name="out.png"):
     if X.shape[1] != 2:
         return None
+    ax = plt.axes()
     xx, yy, Z = get_boundary(clf)
     plt.contourf(xx, yy, Z, cmap=plt.cm.coolwarm)
-
+    
     # Put the result into a color plot
     plt.figure(1, figsize=(4, 4))
     # Plot also the training points
@@ -28,13 +29,13 @@ def plot_boundary(X, y, clf, labels=["x1", "x2"], plot_data=True,
         plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm, edgecolors='k')
     plt.xlabel(labels[0])
     plt.ylabel(labels[1])
-
     plt.xlim(xx.min(), xx.max())
     plt.ylim(yy.min(), yy.max())
     plt.xticks(())
     plt.yticks(())
+    ax.set_aspect("equal")
     if save:
-        plt.savefig(file_name)
+        plt.savefig(file_name, bbox_inches='tight', pad_inches=0)
     if show:
         plt.show()
     plt.clf()
@@ -52,7 +53,8 @@ def plot_circles(X, y, spheres, clf, labels=["x1", "x2"], plot_data=False,
     if plot_data:
         ax.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm, edgecolors='k')
         
-    for s in spheres: 
+    for s in spheres.values():
+        # print(s)
         c = pat.Circle(xy=s[0], radius=s[1], fill=False)
         ax.add_patch(c)
     ax.set_xlabel(labels[0])
@@ -64,7 +66,7 @@ def plot_circles(X, y, spheres, clf, labels=["x1", "x2"], plot_data=False,
     ax.set_aspect("equal")
     
     if save:
-        plt.savefig(file_name)
+        plt.savefig(file_name, bbox_inches='tight', pad_inches=0)
     if show:
         plt.show()
     plt.clf()

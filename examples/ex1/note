@@ -1,0 +1,107 @@
+dataset='iris'
+target_class=0 (setosa)
+------
+Recall
+HR: 0.99880
+HP: 0.40459
+BA: 0.86492
+---
+Precision
+HR: 0.35190
+HP: 0.98157
+BA: 0.91233
+------
+
+dataset='parkinsons'
+target_class=1
+------
+Recall
+HR: 0.99994
+HP: 0.52267
+BA: 0.98169
+---
+Precision
+HR: 0.91586
+HP: 0.99144
+BA: 0.96836
+------
+
+#############
+# max_iter=10
+# clf = rf
+dataset='iris'
+target_class=0
+------
+Recall
+HR: 0.99875
+HP: 0.40620
+BA: 0.83732
+---
+Precision
+HR: 0.34036
+HP: 0.98050
+BA: 0.90859
+---
+Coverage
+HR: 0.90435
+HP: 0.12682
+BA: 0.28810
+------
+
+dataset='parkinsons'
+target_class=1
+------
+Recall
+HR: 0.99993
+HP: 0.56650
+BA: 0.98670
+---
+Precision
+HR: 0.93013
+HP: 0.99206
+BA: 0.96996
+---
+Coverage
+HR: 0.99991
+HP: 0.53299
+BA: 0.94613
+------
+#############
+
+
+dataset='iris'
+target_class=0
+Recall
+HR: 0.99725
+HP: 0.77128
+BA: 0.62663
+---
+Precision
+HR: 0.36629
+HP: 0.98690
+BA: 0.76397
+---
+Coverage
+HR: 0.47874
+HP: 0.13598
+BA: 0.14595
+------
+
+dataset='parkinsons'
+target_class=1
+------
+Recall
+HR: 0.99996
+HP: 0.11694
+BA: 0.79112
+---
+Precision
+HR: 0.54662
+HP: 0.97618
+BA: 0.77056
+---
+Coverage
+HR: 0.99996
+HP: 0.06548
+BA: 0.56120
+------

@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.datasets import make_moons, make_blobs
+from sklearn.datasets import make_moons, make_blobs, 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import recall_score, precision_score
 

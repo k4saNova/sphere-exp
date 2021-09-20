@@ -1,0 +1,28 @@
+SVC
+train score: 0.928
+===== High-recall =====
+recall:    0.9991789379741187
+precision: 0.8000085747359695
+coverage:  0.69973
+=======================
+
+=== High-Precision ====
+recall:    0.9138598839803659
+precision: 0.9974478862263784
+coverage:  0.5133
+=======================
+
+
+RandomForest
+train score: 1.0
+===== High-recall =====
+recall:    0.999725360235824
+precision: 0.7785937344037417
+coverage:  0.70129
+=======================
+
+=== High-Precision ====
+recall:    0.8156800996026878
+precision: 0.9982745871333497
+coverage:  0.44627
+=======================
