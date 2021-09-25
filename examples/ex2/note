@@ -1,4 +1,4 @@
-SVC
+SVC N= 5000
 train score: 0.928
 ===== High-recall =====
 recall:    0.9991789379741187
@@ -13,7 +13,7 @@ coverage:  0.5133
 =======================
 
 
-RandomForest
+RandomForest N = 5000
 train score: 1.0
 ===== High-recall =====
 recall:    0.999725360235824
@@ -26,3 +26,18 @@ recall:    0.8156800996026878
 precision: 0.9982745871333497
 coverage:  0.44627
 =======================
+
+N = 100
+train score: 1.0
+===== High-recall =====
+recall:    0.977534467290404
+precision: 0.8352236284279524
+coverage:  0.63923
+=======================
+
+=== High-Precision ====
+recall:    0.925975428895765
+precision: 0.9463697604790419
+coverage:  0.5344
+=======================
+

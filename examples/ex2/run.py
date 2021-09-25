@@ -38,8 +38,8 @@ def main():
     scaler = MinMaxScaler()
     x, y = load_data(data_name, scaler, fit=True)
     x = scaler.fit_transform(x)
-    clf = SVC() # RandomForestClassifier() # 
-    clf_name = "svc" # "rf" # 
+    clf = RandomForestClassifier(n_estimators=3) # SVC() # 
+    clf_name = "rf" # "svc" # 
     clf.fit(x, y)
     print(f"train score: {clf.score(x, y)}")
 
@@ -48,27 +48,31 @@ def main():
                   show=False, save=True,
                   file_name=fig_path + f"{clf_name}-bound.png")
 
-    N = 5000
+    N = 100
     VERBOSE = False
     z  = generate_samples(N)
     yz = clf.predict(z)
     domain = [(0, 1), (0, 1)]
     sphexp = SphereExplainer(domain, verbose=VERBOSE)
     target_label = 0
-    max_sub = 3
-    max_super = 10
+    max_sub = 2
+    max_super = 4
     sphexp.fit_subset(target_label, z, yz, max_sub)
     sphexp.fit_superset(target_label, z, yz, max_super)
+    plot_boundary(z, yz, clf, plot_data=True,
+                  show=False, save=True,
+                  file_name=fig_path + f"{clf_name}-samples.png")
     plot_circles(z, yz, sphexp.superset[target_label], clf, plot_data=False,
-                 show=False, save=True, file_name=fig_path + f"{clf_name}-super.png")
+                 show=False, save=True, file_name=fig_path + f"{clf_name}-super-n{N}.png")
     plot_circles(z, yz, sphexp.subset[target_label], clf, plot_data=False,
-                 show=False, save=True, file_name=fig_path + f"{clf_name}-sub.png")
+                 show=False, save=True, file_name=fig_path + f"{clf_name}-sub-n{N}.png")
 
     x_sample = generate_samples(100000)
     y_sample = clf.predict(x_sample)
     hr_recall, hp_recall = sphexp.recall(x_sample, y_sample, target_label)
     hr_precision, hp_precision = sphexp.precision(x_sample, y_sample, target_label)
     hr_cov, hp_cov = sphexp.coverage(x_sample, target_label)
+    print(f"{clf_name} ({N=})")
     print("===== High-recall =====")
     print(f"recall:    {hr_recall}")
     print(f"precision: {hr_precision}")

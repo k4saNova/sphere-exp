@@ -1,107 +1,133 @@
-dataset='iris'
-target_class=0 (setosa)
-------
-Recall
-HR: 0.99880
-HP: 0.40459
-BA: 0.86492
----
-Precision
-HR: 0.35190
-HP: 0.98157
-BA: 0.91233
-------
+############# IRIS #############
+# parameters
+max_iter=10
+n_proto=20000
+n_samples=50000
+target_class_name='setosa'
 
-dataset='parkinsons'
-target_class=1
+clf_name="svc"
 ------
 Recall
-HR: 0.99994
-HP: 0.52267
-BA: 0.98169
+HR: 0.99255
+HP: 0.77291
+BA: 0.61823
 ---
 Precision
-HR: 0.91586
-HP: 0.99144
-BA: 0.96836
-------
-
-#############
-# max_iter=10
-# clf = rf
-dataset='iris'
-target_class=0
-------
-Recall
-HR: 0.99875
-HP: 0.40620
-BA: 0.83732
----
-Precision
-HR: 0.34036
-HP: 0.98050
-BA: 0.90859
+HR: 0.46466
+HP: 0.98664
+BA: 0.76256
 ---
 Coverage
-HR: 0.90435
-HP: 0.12682
-BA: 0.28810
+True: 0.17434
+HR: 0.38331
+HP: 0.13630
+BA: 0.14436
 ------
 
-dataset='parkinsons'
-target_class=1
+clf_name='mlp'
 ------
 Recall
-HR: 0.99993
-HP: 0.56650
-BA: 0.98670
+HR: 0.99508
+HP: 0.78992
+BA: 0.72238
 ---
 Precision
-HR: 0.93013
-HP: 0.99206
-BA: 0.96996
+HR: 0.39500
+HP: 0.98794
+BA: 0.74025
 ---
 Coverage
-HR: 0.99991
-HP: 0.53299
-BA: 0.94613
-------
-#############
-
-
-dataset='iris'
-target_class=0
-Recall
-HR: 0.99725
-HP: 0.77128
-BA: 0.62663
----
-Precision
-HR: 0.36629
-HP: 0.98690
-BA: 0.76397
----
-Coverage
-HR: 0.47874
-HP: 0.13598
-BA: 0.14595
+True: 0.22044
+HR: 0.58743
+HP: 0.17637
+BA: 0.21622
 ------
 
-dataset='parkinsons'
-target_class=1
+clf_name='rf'
 ------
 Recall
-HR: 0.99996
-HP: 0.11694
-BA: 0.79112
+HR: 0.99373
+HP: 0.46975
+BA: 0.87135
+DT: 0.36798
 ---
 Precision
-HR: 0.54662
-HP: 0.97618
-BA: 0.77056
+HR: 0.42322
+HP: 0.98150
+BA: 0.93569
+DT: 0.94799
 ---
 Coverage
-HR: 0.99996
-HP: 0.06548
-BA: 0.56120
+True: 0.29487
+HR: 0.72049
+HP: 0.14034
+BA: 0.27647
+DT: 0.11379
+------
+
+################ WINE #############
+max_iter=10
+n_proto=10000
+n_samples=50000
+dataset='wine'
+target_class_name='class_2'
+
+clf_name='svc'
+------
+Recall
+HR: 0.91510
+HP: 0.19365
+BA: 0.08864
+---
+Precision
+HR: 0.34405
+HP: 0.84789
+BA: 0.10650
+---
+Coverage
+True: 0.05215
+HR: 0.13988
+HP: 0.01183
+BA: 0.01329
+------
+
+clf_name='mlp'
+------
+Recall
+HR: 0.97523
+HP: 0.19174
+BA: 0.07548
+---
+Precision
+HR: 0.20560
+HP: 0.93079
+BA: 0.15165
+---
+Coverage
+True: 0.15358
+HR: 0.72876
+HP: 0.03167
+BA: 0.03500
+------
+
+clf_name='rf'
+------
+Recall
+HR: 0.96355
+HP: 0.05592
+BA: 0.55165
+DT: 0.32721
+---
+Precision
+HR: 0.18929
+HP: 0.72421
+BA: 0.65842
+DT: 0.93526
+---
+Coverage
+True: 0.15009
+HR: 0.75962
+HP: 0.01176
+BA: 0.12623
+DT: 0.05420
 ------

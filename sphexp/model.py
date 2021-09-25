@@ -1,6 +1,6 @@
 import numpy as np
 from itertools import combinations, product
-from sklearn.cluster import KMeans, AgglomerativeClustering
+from sklearn.cluster import KMeans
 from sklearn.metrics import recall_score, precision_score
 from .utils import *
 from .miniball import miniball
@@ -112,7 +112,7 @@ class SphereExplainer(object):
                 kmeans = KMeans(n_clusters=n).fit(x)
                 return kmeans.predict(x)
             else:
-                raise ValueError("set _spheres > 0")
+                raise ValueError("set n_spheres > 0")
 
 
         def update_history(spheres, cov):
@@ -137,6 +137,8 @@ class SphereExplainer(object):
             spheres = {}
             for l in unique_label:
                 xp = pos_pt[l_cluster==l]
+                if xp.shape[0] < 3:
+                    continue
                 miniball = self.miniball(xp)
                 spheres[l] = (miniball["center"], miniball["radius"])
 
@@ -204,6 +206,5 @@ class SphereExplainer(object):
 
     def fit(self, target_label, prototypes, labels,
             max_sphere_super=10, max_sphere_sub=10):
-        hist, _ = self.fit_subset(target_label, prototypes, labels, max_sphere_sub)
-        print(hist)
+        self.fit_subset(target_label, prototypes, labels, max_sphere_sub)
         self.fit_superset(target_label, prototypes, labels, max_sphere_super)

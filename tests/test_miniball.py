@@ -10,6 +10,7 @@ def test():
     exp = SphereExplainer([(0,1), (0,1), (0,1)])
     res = exp.miniball(x)
     pprint(res)
-
+    assert True is True
+    
 if __name__ == '__main__':
     test()
